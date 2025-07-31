@@ -1,11 +1,17 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route("/")
-def home():
-    return "Привет с Render!"
+def main():
+    return render_template("index.html")
 
-@app.route("/api/hello")
-def api():
-    return {"message": "Пример API JSON"}
+@app.route("/login")
+def login():
+    return
+
+@app.route("/register")
+def register():
+    return
+
+app.run(debug=True)
