@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -8,10 +8,16 @@ def main():
 
 @app.route("/login")
 def login():
-    return
+    return render_template("login.html")
+
+@app.route("/loginFallback", methods=["POST"])
+def loginFallback():
+    email = request.form.get("email")
+    passw = request.form.get("password")
+    return {"email":email, "password":passw}
 
 @app.route("/register")
 def register():
-    return
+    return render_template("register.html")
 
 app.run(debug=True)
