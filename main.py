@@ -19,5 +19,3 @@ def loginFallback():
 @app.route("/register")
 def register():
     return render_template("register.html")
-
-app.run(debug=True)
